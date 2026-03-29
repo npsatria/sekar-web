@@ -1,7 +1,7 @@
 import '../css/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { createIcons, FileText, ArrowDown } from 'lucide';
+import { createIcons, FileText, ArrowDown, Mail, Phone } from 'lucide';
 
 // Initialize AOS (PRD spec)
 AOS.init({
@@ -13,7 +13,9 @@ AOS.init({
 createIcons({
   icons: {
     FileText,
-    ArrowDown
+    ArrowDown,
+    Mail,
+    Phone
   }
 });
 
