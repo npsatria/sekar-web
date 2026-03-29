@@ -9,31 +9,33 @@
 <body class="font-sans text-cream bg-plum-dark antialiased selection:bg-rose selection:text-white">
 
     <!-- HERO SECTION -->
-    <header class="relative w-full h-[100svh] flex flex-col justify-end px-6 md:px-16 lg:px-24 pb-16 md:pb-24">
+    <header class="relative w-full h-[100svh] flex flex-col items-center justify-center px-6 md:px-16 lg:px-24 text-center">
+        <!-- Background & Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="/asset/foto-hero.jpeg" alt="SEKAR Hair Mask" class="w-full h-full object-cover object-center" />
-            <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/50 to-transparent pointer-events-none"></div>
+            <!-- Stronger Overlay for Readability -->
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-[1px] pointer-events-none"></div>
         </div>
 
-        <div class="relative z-10 w-full max-w-6xl mx-auto drop-shadow-2xl">
-            <h1 class="font-serif italic font-bold text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-cream leading-none tracking-tight mb-2 [text-shadow:0_4px_12px_rgba(0,0,0,0.4)]" data-aos="fade-down" data-aos-duration="1000">SEKAR</h1>
-            <h2 class="font-sans font-medium text-lg sm:text-xl md:text-2xl text-rose tracking-[0.25em] uppercase mb-6 sm:mb-8 [text-shadow:0_2px_8px_rgba(0,0,0,0.3)]" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">Hair Mask</h2>
+        <!-- Content -->
+        <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center drop-shadow-2xl">
+            <h1 class="font-serif italic font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white leading-none tracking-tight mb-4 [text-shadow:0_4px_20px_rgba(0,0,0,0.6)]" data-aos="zoom-in" data-aos-duration="1200">
+                SEKAR
+            </h1>
+            <h2 class="font-sans font-bold text-xl sm:text-2xl md:text-3xl text-gold tracking-widest uppercase mb-6 [text-shadow:0_2px_10px_rgba(0,0,0,0.4)]" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+                Hair Mask
+            </h2>
 
-            <hr class="w-12 sm:w-16 border-gold/50 mb-6" data-aos="zoom-in" data-aos-delay="400">
-
-            <p class="font-sans text-sm sm:text-base md:text-lg text-cream/90 max-w-lg mb-8 sm:mb-10 leading-relaxed font-light" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                SEKAR (Smooth, Essential and Repairing): Hair Mask Formulated from Canang Waste with Balsam (Impatiens balsamina) Extractand Pandan (Pandanus
-                amaryllifolius) as Natural
-                Fragrance to Strengthen and
-                Moisturize Hair
+            <p class="font-sans text-sm sm:text-base md:text-lg text-cream/90 max-w-2xl mb-12 leading-relaxed font-light drop-shadow-md" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                SEKAR (Smooth, Essential and Repairing) is a premium hair treatment formulated from ceremonial canang waste, enriched with natural extracts to strengthen, moisturize, and restore your hair's natural vitality.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-start gap-6" data-aos="fade-up" data-aos-delay="800">
-                <a href="#our-product" class="inline-flex items-center gap-2 group px-0 py-2 border-b border-rose text-rose hover:text-gold hover:border-gold transition-colors text-xs font-semibold tracking-widest uppercase">
-                    Discover More <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+            <div class="flex flex-col sm:flex-row items-center gap-6" data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000">
+                <a href="https://drive.google.com/file/d/1mGDvSoD4JZ16ESV4n8-AY11cr-LzWFq_/view" target="_blank" class="px-10 py-4 bg-gold text-plum-dark hover:bg-cream hover:scale-105 transition-all duration-300 text-sm font-bold tracking-[0.1em] uppercase rounded-full shadow-xl">
+                    Lab Report <i data-lucide="file-text" class="inline-block ml-2 w-4 h-4"></i>
                 </a>
-                <a href="https://drive.google.com/file/d/1mGDvSoD4JZ16ESV4n8-AY11cr-LzWFq_/view" target="_blank" class="inline-flex items-center gap-2 group px-6 py-3 bg-gold text-plum-dark hover:bg-cream hover:text-plum-dark transition-colors text-xs font-bold tracking-widest uppercase rounded-sm">
-                    Lab Report <i data-lucide="file-text" class="w-4 h-4"></i>
+                <a href="#our-product" class="px-8 py-4 border border-cream/30 text-cream hover:bg-cream/10 hover:border-cream transition-all duration-300 text-sm font-semibold tracking-widest uppercase rounded-full backdrop-blur-sm">
+                    Discover More <i data-lucide="arrow-down" class="inline-block ml-2 w-4 h-4"></i>
                 </a>
             </div>
         </div>
