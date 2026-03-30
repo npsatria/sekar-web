@@ -414,8 +414,8 @@
     <!-- Grain texture -->
     <div class="grain-overlay"></div>
 
-    <!-- Hero Content — anchored to bottom -->
-    <div style="position:relative; z-index:10; width:100%; max-width:72rem; margin:0 auto; padding:0 1.5rem 4rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+    <!-- Hero Content — centered for better responsive balance -->
+    <div style="position:relative; z-index:10; width:100%; max-width:72rem; margin:0 auto; padding:4rem 1.5rem; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
 
         <!-- Product badge -->
         <!-- <div data-aos="fade-down" data-aos-duration="800"
@@ -624,18 +624,18 @@
         </div>
 
         <!-- Wide/landscape closing photo -->
-        <div class="journey-card" data-aos="fade-up" data-aos-delay="300" style="height:auto; min-height:280px; position:relative;">
-            <div class="journey-card-inner" style="position:absolute; inset:0;">
+        <div class="journey-card" data-aos="fade-up" data-aos-delay="300" style="height:280px;">
+            <div class="journey-card-inner">
                  <img src="/asset/foto-hero.jpeg" alt="SEKAR — Ready to use"
                       style="width:100%; height:100%; object-fit:cover; object-position:center 60%; display:block;" />
             </div>
-            <!-- Overlay with closing message -->
-            <div style="position:relative; z-index:10; min-height:280px; background:linear-gradient(to right, rgba(26,10,32,0.88) 0%, rgba(26,10,32,0.3) 70%, transparent 100%); display:flex; align-items:center; padding:1.5rem 2rem;">
-                <div style="max-width: 100%;">
-                    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.25rem, 5vw, 1.75rem); color:var(--cream); line-height:1.3; margin-bottom:0.5rem; max-width:20rem;">
+            <!-- Overlay with closing message — Original Style Restored -->
+            <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(26,10,32,0.85) 0%, rgba(26,10,32,0.2) 60%, transparent 100%); display:flex; align-items:center; padding:2.5rem;">
+                <div>
+                    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.75rem; color:var(--cream); line-height:1.3; margin-bottom:0.5rem; max-width:18rem;">
                         Crafted with care,<br/>rooted in Bali.
                     </p>
-                    <span style="font-size:0.625rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); font-weight:500;">SEKAR Hair Mask</span>
+                    <span style="font-size:0.6875rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); font-weight:500;">SEKAR Hair Mask</span>
                 </div>
             </div>
         </div>
