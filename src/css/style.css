@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-plum: #6E2B72;
-  --color-plum-dark: #1a0a20;
-  --color-plum-mid: #2a1230;
-  --color-gold: #D4930C;
-  --color-rose: #C97BA8;
-  --color-cream: #FAF3E0;
+  --color-plum: #5D245F;
+  --color-plum-dark: #0D0410; /* Deeper black-plum for high-end luxury */
+  --color-plum-mid: #1A0820;
+  --color-gold: #E5AC44;      /* More vibrant 'Luxe Gold' */
+  --color-rose: #D48EB3;      /* Slightly clearer rose */
+  --color-cream: #FFFBF2;     /* Brighter cream for superior readability */
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "DM Sans", sans-serif;
 }
