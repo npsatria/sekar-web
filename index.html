@@ -141,6 +141,15 @@
             margin-bottom: 0px;
         }
 
+        /* ── Mini bounce for dropdown arrow ── */
+        @keyframes bounce-mini {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(3px); }
+        }
+        .btn-ghost i {
+            animation: bounce-mini 2s ease-in-out infinite;
+        }
+
         /* ── Bento card hover ── */
         .bento-card {
             border-radius: 1.25rem;
