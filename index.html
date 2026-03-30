@@ -34,6 +34,25 @@
             --bg-pattern:   url('/asset/bg.svg');
         }
 
+        /* ── Global Layout Stability ── */
+        .page-container {
+            width: 100%;
+            max-width: 72rem; /* 1152px — matching Binara/SEKAR standards */
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* ── Hero Responsive Padding ── */
+        .hero-safe-zone {
+            padding: 4rem 10%;
+        }
+        @media (max-width: 768px) {
+            .hero-safe-zone { padding: 4rem 2rem !important; }
+        }
+        @media (max-width: 480px) {
+            .hero-safe-zone { padding: 4rem 1.5rem !important; }
+        }
+
         /* ── Section divider ── */
         .section-label {
             display: inline-flex;
@@ -399,11 +418,8 @@
     <button class="lang-btn" data-lang="id" onclick="changeLanguage('id')">ID</button>
 </div>
 
-<header id="beranda" style="position:relative; width:100%; height:100svh; display:flex; justify-content:center; align-items:center; overflow:hidden;">
-    <!-- Standardized padding-inline for all devices -->
-    <style>
-        @media (max-width: 480px) { .hero-safe-zone { padding: 4rem 1.25rem !important; } }
-    </style>
+<header id="beranda" style="position:relative; width:100%; height:100svh; min-height:600px; display:flex; justify-content:center; align-items:center; overflow:hidden;">
+    <!-- Standardized padding-inline for all devices — handled in head style -->
 
     <!-- Background Photo -->
     <img
@@ -418,8 +434,8 @@
     <!-- Grain texture -->
     <div class="grain-overlay"></div>
 
-    <!-- Hero Content — strictly centered with flexible safe-zones -->
-    <div class="hero-safe-zone" style="position:relative; z-index:10; width:100%; max-width:1140px; padding:4rem 10%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-sizing:border-box;">
+    <!-- Hero Content — standardized with page-container for perfect symmetry -->
+    <div class="hero-safe-zone page-container" style="z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-sizing:border-box;">
 
         <!-- Product badge -->
         <!-- <div data-aos="fade-down" data-aos-duration="800"
@@ -440,9 +456,9 @@
             Hair Mask
         </p>
 
-        <!-- Description — strictly centered with balanced max-width -->
+        <!-- Description — balanced width for centering -->
         <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-i18n="hero_desc"
-           style="width:100%; max-width:26rem; margin:0 auto 2.5rem auto !important; font-size:0.875rem; font-weight:300; line-height:1.7; color:rgba(250,243,224,0.85); letter-spacing:0.01em;">
+           style="width:100%; max-width:32rem; margin:0 auto 2.5rem auto !important; font-size:0.875rem; font-weight:300; line-height:1.7; color:rgba(250,243,224,0.85); letter-spacing:0.01em;">
            SEKAR (Smooth, Essential and Repairing): Hair Mask Formulated from Canang Waste with Balsam (Impatiens balsamina) Extract and Pandan (Pandanus amaryllifolius) as Natural Fragrance to Strengthen and Moisturize Hair
         </p>
 
@@ -468,7 +484,7 @@
 </header>
 
 <section id="our-product" style="background:var(--plum-dark) var(--bg-pattern); background-attachment:fixed; padding:5rem 1.5rem;">
-    <div style="max-width:72rem; margin:0 auto;">
+    <div class="page-container">
 
         <!-- Section label -->
         <div style="text-align:center; margin-bottom:1.5rem;" data-aos="fade-up">
@@ -550,7 +566,7 @@
     <img src="/asset/dekorasi/deko 11.svg" class="corner-ornament ornament-float"
          style="bottom:5%; left:-3%; width:180px; opacity:0.3; --rot:45deg; animation-delay: -4s;" data-aos="fade-up" />
 
-    <div style="max-width:72rem; margin:0 auto; position:relative; z-index:2;">
+    <div class="page-container" style="z-index:2;">
 
         <!-- Section label -->
         <div style="text-align:center; margin-bottom:0.75rem;" data-aos="fade-up">
