@@ -1,3 +1,16 @@
+import { 
+    createIcons, 
+    Leaf, 
+    FileText, 
+    ArrowDown, 
+    ChevronDown, 
+    ChevronsDown, 
+    Flower2, 
+    Sparkles, 
+    Mail, 
+    MessageCircle 
+} from 'lucide';
+
 // --- Internationalization (i18n) Logic ---
 const translations = {
     en: {
@@ -27,6 +40,8 @@ const translations = {
         step_2: "Extract",
         step_3: "Formulate",
         step_4: "Package",
+        journey_promo_title: "Crafted with care,<br/>rooted in Bali.",
+        journey_promo_sub: "SEKAR Hair Mask",
         footer_sub: "Natural Hair Mask · Bali",
         footer_copy: "© 2026 SEKAR. All rights reserved."
     },
@@ -57,6 +72,8 @@ const translations = {
         step_2: "Ekstraksi",
         step_3: "Formulasi",
         step_4: "Kemasan",
+        journey_promo_title: "Dibuat dengan sepenuh hati,<br/>berakar di Bali.",
+        journey_promo_sub: "Masker Rambut SEKAR",
         footer_sub: "Masker Rambut Alami · Bali",
         footer_copy: "© 2026 SEKAR. Hak Cipta Dilindungi."
     }
@@ -73,7 +90,7 @@ window.changeLanguage = (lang) => {
             // Apply fade out-in transition effect
             el.style.opacity = '0';
             setTimeout(() => {
-                if (key.includes('desc')) {
+                if (key.includes('desc') || key.includes('title')) {
                     el.innerHTML = translations[lang][key];
                 } else {
                     el.textContent = translations[lang][key];
@@ -118,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'flower-2': Flower2,
             sparkles: Sparkles,
             mail: Mail,
-            phone: Phone,
+            'message-circle': MessageCircle,
         },
     });
 
