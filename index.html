@@ -399,7 +399,7 @@
     <button class="lang-btn" data-lang="id" onclick="changeLanguage('id')">ID</button>
 </div>
 
-<header id="beranda" style="position:relative; width:100%; height:100svh; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+<header id="beranda" style="position:relative; width:100%; height:100svh; display:flex; align-items:flex-end; overflow:hidden;">
 
     <!-- Background Photo -->
     <img
@@ -408,14 +408,14 @@
         style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;"
     />
 
-    <!-- Gradient Overlay — centered for balanced readability -->
-    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(26,10,32,0.92) 0%, rgba(26,10,32,0.6) 50%, rgba(26,10,32,0.92) 100%);"></div>
+    <!-- Gradient Overlay — bottom-heavy for readability -->
+    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(26,10,32,0.97) 0%, rgba(26,10,32,0.7) 35%, rgba(26,10,32,0.25) 65%, rgba(0,0,0,0.1) 100%);"></div>
 
     <!-- Grain texture -->
     <div class="grain-overlay"></div>
 
-    <!-- Hero Content — fully centered -->
-    <div style="position:relative; z-index:10; width:100%; max-width:72rem; margin:0 auto; padding:2rem 1.5rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+    <!-- Hero Content — standardized width and gaps for balance -->
+    <div style="position:relative; z-index:10; width:100%; max-width:1140px; margin:0 auto; padding:4rem 2rem; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-sizing:border-box;">
 
         <!-- Product badge -->
         <!-- <div data-aos="fade-down" data-aos-duration="800"
@@ -436,9 +436,9 @@
             Hair Mask
         </p>
 
-        <!-- Description — short, punchy, readable -->
+        <!-- Description — balanced width for centering -->
         <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-i18n="hero_desc"
-           style="max-width:32rem; font-size:0.9375rem; font-weight:300; line-height:1.8; color:rgba(250,243,224,0.82); margin-bottom:2.5rem; letter-spacing:0.01em;">
+           style="max-width:30rem; width:100%; font-size:0.9375rem; font-weight:300; line-height:1.8; color:rgba(250,243,224,0.82); margin:0 auto 2.5rem auto; letter-spacing:0.01em;">
            SEKAR (Smooth, Essential and Repairing): Hair Mask Formulated from Canang Waste with Balsam (Impatiens balsamina) Extract and Pandan (Pandanus amaryllifolius) as Natural Fragrance to Strengthen and Moisturize Hair
         </p>
 
