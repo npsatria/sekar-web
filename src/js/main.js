@@ -100,10 +100,11 @@ window.changeLanguage = (lang) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Init AOS
     AOS.init({
-        duration: 1200,
+        duration: 800,
         once: true,
-        offset: 100,
+        offset: 40,
         easing: 'ease-out-cubic',
+        mirror: false
     })
 
     // Init Lucide icons
