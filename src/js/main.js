@@ -1,26 +1,37 @@
-import '../css/style.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { createIcons, FileText, ArrowDown, Mail, Phone } from 'lucide';
+import '../css/style.css'
+import AOS from 'aos'
+import { createIcons, Leaf, FileText, ArrowDown, ChevronDown, ChevronsDown, Flower2, Sparkles, Mail, Phone } from 'lucide'
 
-// Initialize AOS (PRD spec)
+// Init AOS
 AOS.init({
+  duration: 900,
   once: true,
-  duration: 800
-});
+  offset: 60,
+  easing: 'ease-out-cubic',
+})
 
-// Initialize Lucide Icons
+// Init Lucide icons
 createIcons({
   icons: {
-    FileText,
-    ArrowDown,
-    Mail,
-    Phone
-  }
-});
+    leaf: Leaf,
+    'file-text': FileText,
+    'arrow-down': ArrowDown,
+    'chevron-down': ChevronDown,
+    'chevrons-down': ChevronsDown,
+    'flower-2': Flower2,
+    sparkles: Sparkles,
+    mail: Mail,
+    phone: Phone,
+  },
+})
 
-// Smooth scroll untuk CTA
-document.querySelector('a[href="#our-product"]')?.addEventListener('click', (e) => {
-  e.preventDefault();
-  document.querySelector('#our-product').scrollIntoView({ behavior: 'smooth' });
-});
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    const target = document.querySelector(this.getAttribute('href'))
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  })
+})

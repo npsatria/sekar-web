@@ -1,152 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEKAR - Herbal Ointment</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEKAR — Natural Hair Mask · Bali</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Vite entry -->
     <script type="module" src="./src/js/main.js"></script>
+
+    <style>
+        /* ── Base reset via Tailwind v4 @import in style.css ── */
+        /* ── Custom component styles ── */
+
+        :root {
+            --plum:         #6E2B72;
+            --plum-light:   #8B3D90;
+            --plum-mid:     #2a1230;
+            --plum-dark:    #1a0a20;
+            --gold:         #D4930C;
+            --gold-light:   #F4C97A;
+            --rose:         #C97BA8;
+            --cream:        #FAF3E0;
+        }
+
+        /* ── Section divider ── */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--rose);
+        }
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold));
+        }
+        .section-label::after {
+            background: linear-gradient(to left, transparent, var(--gold));
+        }
+
+        /* ── Journey step overlay ── */
+        .step-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--gold);
+            text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+            opacity: 0.9;
+        }
+
+        /* ── Journey decorative border ── */
+        .journey-grid-wrapper {
+            border: 1px solid rgba(212, 147, 12, 0.25);
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .journey-grid-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 6px solid rgba(212, 147, 12, 0.06);
+            border-radius: 1rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* ── Wide landscape photo ── */
+        .wide-photo-frame {
+            border: 1px solid rgba(201, 123, 168, 0.3);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        /* ── CTA buttons ── */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: var(--gold);
+            color: var(--plum-dark);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 24px rgba(212, 147, 12, 0.35);
+        }
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(212, 147, 12, 0.45);
+        }
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: transparent;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            border: 1px solid rgba(250, 243, 224, 0.35);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            backdrop-filter: blur(4px);
+        }
+        .btn-ghost:hover {
+            background: rgba(250, 243, 224, 0.08);
+            border-color: rgba(250, 243, 224, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* ── Bento card hover ── */
+        .bento-card {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            transition: border-color 0.4s ease;
+        }
+        .bento-card img {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .bento-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ── Journey photo hover ── */
+        .journey-photo {
+            overflow: hidden;
+            position: relative;
+        }
+        .journey-photo img {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .journey-photo:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── Inline links (Our Product section) ── */
+        .science-link {
+            color: var(--cream);
+            text-decoration: underline;
+            text-decoration-color: rgba(201, 123, 168, 0.5);
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        }
+        .science-link:hover {
+            color: var(--rose);
+            text-decoration-color: var(--rose);
+        }
+        .science-link.italic-link { font-style: italic; }
+
+        /* ── Footer ── */
+        .footer-line {
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* ── Scroll indicator bounce ── */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(8px); }
+        }
+        .scroll-hint { animation: bounce-slow 2s ease-in-out infinite; }
+
+        /* ── Decorative grain overlay on hero ── */
+        .grain-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 128px;
+        }
+
+        /* ── Gold ornament line ── */
+        .gold-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        .gold-ornament span {
+            display: block;
+            height: 1px;
+            width: 64px;
+            background: linear-gradient(to right, transparent, rgba(212,147,12,0.5));
+        }
+        .gold-ornament span:last-child {
+            background: linear-gradient(to left, transparent, rgba(212,147,12,0.5));
+        }
+        .gold-ornament i { color: var(--gold); opacity: 0.6; }
+    </style>
 </head>
-<body class="font-sans text-cream bg-plum-dark antialiased selection:bg-rose selection:text-white">
 
-    <!-- HERO SECTION -->
-    <header class="relative w-full h-[100svh] flex flex-col items-center justify-center px-6 md:px-16 lg:px-24 text-center">
-        <!-- Background & Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="/asset/foto-hero.jpeg" alt="SEKAR Hair Mask" class="w-full h-full object-cover object-center" />
-            <!-- Stronger Overlay for Readability -->
-            <div class="absolute inset-0 bg-black/40 backdrop-blur-[1px] pointer-events-none"></div>
+<body style="font-family:'DM Sans',sans-serif; color:var(--cream); background:var(--plum-dark); overflow-x:hidden;">
+
+<!-- ═══════════════════════════════════════════ -->
+<!--  HERO SECTION                              -->
+<!-- ═══════════════════════════════════════════ -->
+<header id="beranda" style="position:relative; width:100%; height:100svh; display:flex; align-items:flex-end; overflow:hidden;">
+
+    <!-- Background Photo -->
+    <img
+        src="/asset/foto-hero.jpeg"
+        alt="SEKAR Hair Mask"
+        style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;"
+    />
+
+    <!-- Gradient Overlay — bottom-heavy for readability -->
+    <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(26,10,32,0.97) 0%, rgba(26,10,32,0.7) 35%, rgba(26,10,32,0.25) 65%, rgba(0,0,0,0.1) 100%);"></div>
+
+    <!-- Grain texture -->
+    <div class="grain-overlay"></div>
+
+    <!-- Hero Content — anchored to bottom -->
+    <div style="position:relative; z-index:10; width:100%; max-width:72rem; margin:0 auto; padding:0 1.5rem 4rem; display:flex; flex-direction:column; align-items:center; text-align:center;">
+
+        <!-- Product badge -->
+        <div data-aos="fade-down" data-aos-duration="800"
+             style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(212,147,12,0.15); border:1px solid rgba(212,147,12,0.4); border-radius:9999px; padding:0.375rem 1rem; margin-bottom:1.5rem;">
+            <i data-lucide="leaf" style="width:12px; height:12px; color:var(--gold);"></i>
+            <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold);">Natural · Eco-Friendly · Bali</span>
         </div>
 
-        <!-- Content -->
-        <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center drop-shadow-2xl">
-            <h1 class="font-serif italic font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-cream leading-none tracking-tight mb-4 [text-shadow:0_4px_24px_rgba(0,0,0,0.8)]" data-aos="zoom-in" data-aos-duration="1200">
-                SEKAR
-            </h1>
-            <h2 class="font-sans font-bold text-xl sm:text-2xl md:text-3xl text-gold tracking-[0.3em] uppercase mb-6 [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                Hair Mask
-            </h2>
+        <!-- SEKAR wordmark -->
+        <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"
+            style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:clamp(5rem,18vw,10rem); line-height:0.9; letter-spacing:-0.02em; color:var(--cream); margin-bottom:0.5rem;">
+            SEKAR
+        </h1>
 
-            <p class="font-sans text-sm sm:text-base md:text-lg text-cream/90 max-w-2xl mb-12 leading-relaxed font-light drop-shadow-md" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                SEKAR (Smooth, Essential and Repairing) is a premium hair treatment formulated from ceremonial canang waste, enriched with natural extracts to strengthen, moisturize, and restore your hair's natural vitality.
-            </p>
+        <!-- Sub label -->
+        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="250"
+           style="font-size:0.75rem; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1.75rem;">
+            Hair Mask
+        </p>
 
-            <div class="flex flex-col sm:flex-row items-center gap-6" data-aos="fade-up" data-aos-delay="900" data-aos-duration="1000">
-                <a href="https://drive.google.com/file/d/1mGDvSoD4JZ16ESV4n8-AY11cr-LzWFq_/view" target="_blank" class="px-10 py-4 bg-gold text-plum-dark hover:bg-cream hover:scale-105 transition-all duration-300 text-sm font-bold tracking-[0.1em] uppercase rounded-full shadow-xl">
-                    Lab Report <i data-lucide="file-text" class="inline-block ml-2 w-4 h-4"></i>
-                </a>
-                <a href="#our-product" class="px-8 py-4 border border-cream/30 text-cream hover:bg-cream/10 hover:border-cream transition-all duration-300 text-sm font-semibold tracking-widest uppercase rounded-full backdrop-blur-sm">
-                    Discover More <i data-lucide="arrow-down" class="inline-block ml-2 w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+        <!-- Description — short, punchy, readable -->
+        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="400"
+           style="max-width:32rem; font-size:0.9375rem; font-weight:300; line-height:1.8; color:rgba(250,243,224,0.82); margin-bottom:2.5rem; letter-spacing:0.01em;">
+            A premium natural hair treatment born from Bali's ceremonial <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--rose);">canang</em> waste — enriched with balsam flower & pandan to strengthen, moisturize, and restore your hair.
+        </p>
 
-    <!-- OUR PRODUCT -->
-    <section id="our-product" class="py-16 md:py-24 px-6 md:px-16 lg:px-24 bg-plum-dark text-center">
-        <div class="mb-12 max-w-6xl mx-auto flex flex-col items-center">
-            <div class="section-divider" data-aos="fade-up">Our Product</div>
-            <p class="mt-8 font-sans text-sm sm:text-base text-cream/80 leading-relaxed font-light text-center max-w-4xl" data-aos="fade-up" data-aos-delay="200">
-                SEKAR is a natural hair mask formulated from <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">canang waste</a>, enriched with <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline italic hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">Impatiens balsamina</a> (balsam flower) extract and <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline italic hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">Pandanus amaryllifolius</a> (pandan) as the aroma, these ingredients are rich in <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">flavonoids</a>, <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">tannins</a>, <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">saponins</a>, and <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">glycosides</a>, which provide antioxidant, antibacterial, and strengthening effects to support healthier, more resilient hair.<br><br>
-                Designed as a safe, eco-friendly, and affordable alternative to chemical based hair treatments, SEKAR helps <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">reduce hair loss</a>, <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">improve moisture balance</a>, and <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">enhance overall hair condition</a>. This innovative formulation not only promotes effective hair care but also supports the sustainable use of <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">local resources</a> by transforming <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="underline hover:text-rose transition-colors decoration-rose/50 underline-offset-4 font-medium text-cream">ceremonial waste</a> into a valuable and functional product.
-            </p>
+        <!-- CTAs -->
+        <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="550"
+             style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; align-items:center;">
+            <a href="/asset/sekar-lab-report.pdf" target="_blank" class="btn-primary">
+                <i data-lucide="file-text" style="width:15px; height:15px;"></i>
+                Lab Report
+            </a>
+            <a href="#our-product" class="btn-ghost">
+                Discover More
+                <i data-lucide="arrow-down" style="width:15px; height:15px;"></i>
+            </a>
         </div>
 
-        <div class="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
-            <!-- Bento 1: Main Large -->
-            <div class="col-span-2 row-span-2 md:col-span-2 md:row-span-2 p-2 border border-gold/30 rounded-2xl md:rounded-[2rem] hover:border-gold transition-colors duration-500" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb 1.jpg" alt="SEKAR Premium Product" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+        <!-- Scroll hint -->
+        <div class="scroll-hint" style="margin-top:2.5rem; opacity:0.35;">
+            <i data-lucide="chevrons-down" style="width:20px; height:20px; color:var(--cream);"></i>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!--  OUR PRODUCT                               -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="our-product" style="background:var(--plum-dark); padding:5rem 1.5rem;">
+    <div style="max-width:72rem; margin:0 auto;">
+
+        <!-- Section label -->
+        <div style="text-align:center; margin-bottom:1.5rem;" data-aos="fade-up">
+            <span class="section-label">Our Product</span>
+        </div>
+
+        <!-- Description -->
+        <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="900"
+           style="max-width:52rem; margin:0 auto 3rem; font-size:0.9375rem; font-weight:300; line-height:1.9; color:rgba(250,243,224,0.78); text-align:center;">
+            SEKAR is a natural hair mask formulated from
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">canang waste</a>,
+            enriched with <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link italic-link">Impatiens balsamina</a>
+            (balsam flower) and <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link italic-link">Pandanus amaryllifolius</a>
+            (pandan) — rich in <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">flavonoids</a>,
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">tannins</a>,
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">saponins</a>, and
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">glycosides</a>.
+            Designed as a safe, eco-friendly, and affordable alternative to chemical-based treatments that
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">reduces hair loss</a>,
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">improves moisture balance</a>, and
+            <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">enhances overall hair condition</a>.
+        </p>
+
+        <!-- Bento Grid — top row -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:250px 250px; gap:1rem; margin-bottom:1rem;">
+
+            <!-- Large main — 2×2 -->
+            <div data-aos="zoom-in" data-aos-duration="900"
+                 class="bento-card"
+                 style="grid-column:span 2; grid-row:span 2; border:1px solid rgba(212,147,12,0.3); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb 1.jpg" alt="SEKAR Premium Product" style="width:100%; height:100%; object-fit:cover;" />
                 </div>
             </div>
 
-            <!-- Bento 2: Tall Side -->
-            <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-2 p-2 border border-rose/30 rounded-2xl md:rounded-[2rem] hover:border-rose transition-colors duration-500" data-aos="fade-up" data-aos-delay="150">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb 3.jpg" alt="SEKAR Detail 1" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Tall right col top — 2×1 -->
+            <div data-aos="fade-left" data-aos-delay="100"
+                 class="bento-card"
+                 style="grid-column:span 1; grid-row:span 2; border:1px solid rgba(201,123,168,0.3); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb 3.jpg" alt="SEKAR Detail" style="width:100%; height:100%; object-fit:cover;" />
                 </div>
             </div>
 
-            <!-- Bento 3: Small Square Top Right -->
-            <div class="col-span-1 row-span-1 md:col-span-1 md:row-span-1 p-2 border border-cream/20 rounded-2xl md:rounded-[2rem] hover:border-cream transition-colors duration-500" data-aos="fade-left" data-aos-delay="300">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb 4.jpg" alt="SEKAR Detail 2" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Small top-right -->
+            <div data-aos="fade-left" data-aos-delay="200"
+                 class="bento-card"
+                 style="grid-column:span 1; grid-row:span 1; border:1px solid rgba(250,243,224,0.15); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb 4.jpg" alt="SEKAR Detail 2" style="width:100%; height:100%; object-fit:cover;" />
                 </div>
             </div>
 
-            <!-- Bento 4: Small Square Bottom Right -->
-            <div class="col-span-1 row-span-1 md:col-span-1 md:row-span-1 p-2 border border-gold/30 rounded-2xl md:rounded-[2rem] hover:border-gold transition-colors duration-500" data-aos="fade-left" data-aos-delay="450">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb 5.jpg" alt="SEKAR Detail 3" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Small bottom-right -->
+            <div data-aos="fade-left" data-aos-delay="300"
+                 class="bento-card"
+                 style="grid-column:span 1; grid-row:span 1; border:1px solid rgba(212,147,12,0.25); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb 5.jpg" alt="SEKAR Detail 3" style="width:100%; height:100%; object-fit:cover;" />
                 </div>
             </div>
 
-        </div> <!-- Penutup Grid Utama -->
+        </div>
 
-        <!-- Bottom 3 Split Images -->
-        <div class="w-full max-w-6xl mx-auto grid grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6 auto-rows-[100px] sm:auto-rows-[150px] md:auto-rows-[250px]">
-            <!-- Split 1 -->
-            <div class="p-1 md:p-2 border border-cream/20 rounded-2xl md:rounded-[2rem] hover:border-cream transition-colors duration-500" data-aos="zoom-in-up" data-aos-delay="100">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb-9.jpg" alt="SEKAR Process 1" class="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+        <!-- Bottom row — 3 equal -->
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem;">
+            <div data-aos="zoom-in-up" data-aos-delay="100"
+                 class="bento-card"
+                 style="height:180px; border:1px solid rgba(250,243,224,0.15); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb-9.jpg" alt="SEKAR Process 1" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
                 </div>
             </div>
-            <!-- Split 2 -->
-            <div class="p-1 md:p-2 border border-gold/30 rounded-2xl md:rounded-[2rem] hover:border-gold transition-colors duration-500" data-aos="zoom-in-up" data-aos-delay="200">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb 8.jpg" alt="SEKAR Process 2" class="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <div data-aos="zoom-in-up" data-aos-delay="200"
+                 class="bento-card"
+                 style="height:180px; border:1px solid rgba(212,147,12,0.25); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb 8.jpg" alt="SEKAR Process 2" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
                 </div>
             </div>
-            <!-- Split 3 -->
-            <div class="p-1 md:p-2 border border-rose/30 rounded-2xl md:rounded-[2rem] hover:border-rose transition-colors duration-500" data-aos="zoom-in-up" data-aos-delay="300">
-                <div class="w-full h-full rounded-xl md:rounded-3xl overflow-hidden group relative">
-                    <img src="/asset/tb 6.jpg" alt="SEKAR Process 3" class="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-700 ease-out" onerror="this.src='/asset/step 3.jpg'" />
+            <div data-aos="zoom-in-up" data-aos-delay="300"
+                 class="bento-card"
+                 style="height:180px; border:1px solid rgba(201,123,168,0.25); padding:0.5rem; background:var(--plum-mid);">
+                <div style="width:100%; height:100%; border-radius:0.875rem; overflow:hidden;">
+                    <img src="/asset/tb 6.jpg" alt="SEKAR Process 3" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- JOURNEY OF SEKAR -->
-    <section id="journey" class="py-16 md:py-24 px-6 md:px-16 lg:px-24 bg-plum-mid text-center">
-        <div class="mb-16">
-            <div class="section-divider" data-aos="fade-up">Journey of SEKAR</div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!--  JOURNEY OF SEKAR                          -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="journey" style="background:var(--plum-mid); padding:5rem 1.5rem;">
+    <div style="max-width:72rem; margin:0 auto;">
+
+        <!-- Section label -->
+        <div style="text-align:center; margin-bottom:0.75rem;" data-aos="fade-up">
+            <span class="section-label">Journey of SEKAR</span>
         </div>
 
-        <div class="max-w-6xl mx-auto flex flex-col items-center gap-4">
-            <!-- Grid 2x2 -->
-            <div class="grid grid-cols-2 gap-2 md:gap-4 w-full">
-                <div class="w-full aspect-square overflow-hidden group" data-aos="fade-right">
-                    <img src="/asset/step 1.jpg" alt="Step 1" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out" />
+        <!-- Ornament -->
+        <div class="gold-ornament" data-aos="fade-up" data-aos-delay="100">
+            <span></span>
+            <i data-lucide="flower-2" style="width:14px; height:14px;"></i>
+            <span></span>
+        </div>
+
+        <!-- Subtitle -->
+        <p data-aos="fade-up" data-aos-delay="150"
+           style="text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.125rem; color:rgba(250,243,224,0.55); margin-bottom:2.5rem; letter-spacing:0.04em;">
+            From sacred waste to premium care — every step, intentional.
+        </p>
+
+        <!-- 2×2 Grid with step numbers + decorative border -->
+        <div class="journey-grid-wrapper" data-aos="fade-up" data-aos-delay="200" style="margin-bottom:1rem;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px;">
+
+                <!-- Step 1 -->
+                <div class="journey-photo" style="aspect-ratio:1/1; position:relative;">
+                    <img src="/asset/step 1.jpg" alt="Step 1 — Harvest" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                    <!-- Gradient bottom for readability -->
+                    <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
+                    <!-- Step number -->
+                    <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
+                        <span class="step-num">01</span>
+                        <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Harvest</span>
+                    </div>
                 </div>
-                <div class="w-full aspect-square overflow-hidden group" data-aos="fade-left" data-aos-delay="100">
-                    <img src="/asset/step 2.jpg" alt="Step 2" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out" />
+
+                <!-- Step 2 -->
+                <div class="journey-photo" style="aspect-ratio:1/1; position:relative;">
+                    <img src="/asset/step 2.jpg" alt="Step 2 — Extract" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                    <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
+                    <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
+                        <span class="step-num">02</span>
+                        <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Extract</span>
+                    </div>
                 </div>
-                <div class="w-full aspect-square overflow-hidden group" data-aos="fade-right" data-aos-delay="200">
-                    <img src="/asset/step 3.jpg" alt="Step 3" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out" />
+
+                <!-- Step 3 -->
+                <div class="journey-photo" style="aspect-ratio:1/1; position:relative; border-top:2px solid rgba(212,147,12,0.12);">
+                    <img src="/asset/step 3.jpg" alt="Step 3 — Formulate" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                    <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
+                    <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
+                        <span class="step-num">03</span>
+                        <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Formulate</span>
+                    </div>
                 </div>
-                <div class="w-full aspect-square overflow-hidden group" data-aos="fade-left" data-aos-delay="300">
-                    <img src="/asset/step 4.jpg" alt="Step 4" class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-out" />
+
+                <!-- Step 4 -->
+                <div class="journey-photo" style="aspect-ratio:1/1; position:relative; border-top:2px solid rgba(212,147,12,0.12);">
+                    <img src="/asset/step 4.jpg" alt="Step 4 — Package" style="width:100%; height:100%; object-fit:cover; display:block;" />
+                    <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
+                    <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
+                        <span class="step-num">04</span>
+                        <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Package</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wide/landscape closing photo -->
+        <div class="wide-photo-frame" data-aos="fade-up" data-aos-delay="300" style="height:280px; position:relative;">
+            <img src="/asset/foto-hero.jpeg" alt="SEKAR — Ready to use"
+                 style="width:100%; height:100%; object-fit:cover; object-position:center 60%; display:block;" />
+            <!-- Overlay with closing message -->
+            <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(26,10,32,0.82) 0%, rgba(26,10,32,0.2) 60%, transparent 100%); display:flex; align-items:center; padding:2.5rem;">
+                <div>
+                    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.75rem; color:var(--cream); line-height:1.3; margin-bottom:0.5rem; max-width:18rem;">
+                        Crafted with care,<br/>rooted in Bali.
+                    </p>
+                    <span style="font-size:0.6875rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); font-weight:500;">SEKAR Hair Mask</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Closing ornament -->
+        <div class="gold-ornament" data-aos="fade-up" data-aos-delay="350" style="margin-top:2rem; margin-bottom:0;">
+            <span></span>
+            <i data-lucide="sparkles" style="width:14px; height:14px;"></i>
+            <span></span>
+        </div>
+
+    </div>
+</section>
 
 
-    </section>
+<!-- ═══════════════════════════════════════════ -->
+<!--  FOOTER                                    -->
+<!-- ═══════════════════════════════════════════ -->
+<footer style="background:var(--plum); padding:3rem 1.5rem 2rem;">
+    <div style="max-width:36rem; margin:0 auto; text-align:center;">
 
-    <!-- FOOTER -->
-    <footer class="py-12 px-6 md:px-16 lg:px-24 bg-plum-dark border-t border-white/5 text-center">
-        <div class="max-w-6xl mx-auto flex flex-col gap-6 justify-center items-center">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-center">
-                <a href="mailto:tugekmas12@gmail.com" class="flex items-center gap-2 font-sans text-xs md:text-sm text-cream/70 hover:text-gold transition-colors tracking-widest uppercase">
-                    <i data-lucide="mail" class="w-4 h-4"></i> tugekmas12@gmail.com
-                </a>
-                <a href="tel:+6281239208093" class="flex items-center gap-2 font-sans text-xs md:text-sm text-cream/70 hover:text-gold transition-colors tracking-widest uppercase">
-                    <i data-lucide="phone" class="w-4 h-4"></i> +62 812-3920-8093
-                </a>
-            </div>
-            <p class="font-sans text-[10px] md:text-xs text-cream/40 tracking-widest uppercase pt-6 w-full max-w-xs">
+        <!-- Gold accent line -->
+        <span class="footer-line"></span>
+
+        <!-- Logo -->
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2rem; color:var(--cream); letter-spacing:0.06em; margin-bottom:0.25rem;">
+            SEKAR
+        </p>
+        <p style="font-size:0.625rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:2rem; font-weight:500;">
+            Natural Hair Mask · Bali
+        </p>
+
+        <!-- Contact row -->
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; align-items:center; margin-bottom:2rem;">
+            <a href="mailto:tugekmas12@gmail.com"
+               style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,243,224,0.6); text-decoration:none; transition:color 0.2s ease;"
+               onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(250,243,224,0.6)'">
+                <i data-lucide="mail" style="width:13px; height:13px;"></i>
+                tugekmas12@gmail.com
+            </a>
+            <span style="width:1px; height:14px; background:rgba(250,243,224,0.2);"></span>
+            <a href="tel:+6281239208093"
+               style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,243,224,0.6); text-decoration:none; transition:color 0.2s ease;"
+               onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(250,243,224,0.6)'">
+                <i data-lucide="phone" style="width:13px; height:13px;"></i>
+                +62 812-3920-8093
+            </a>
+        </div>
+
+        <!-- Divider -->
+        <div style="border-top:1px solid rgba(250,243,224,0.1); padding-top:1.25rem;">
+            <p style="font-size:0.625rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,243,224,0.3); font-weight:400;">
                 © 2026 SEKAR. All rights reserved.
             </p>
         </div>
-    </footer>
+
+    </div>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Responsive tweaks -->
+<style>
+@media (max-width: 640px) {
+    .bento-card { border-radius:0.875rem !important; }
+    .journey-grid-wrapper { border-radius:0.875rem; }
+    .wide-photo-frame { height:200px !important; border-radius:0.875rem; }
+    .step-num { font-size:2rem !important; }
+}
+@media (max-width: 768px) {
+    /* Bento grid collapses to 2 col on mobile */
+    #our-product > div > div:nth-child(3) {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto !important;
+    }
+}
+</style>
 
 </body>
 </html>

@@ -1,19 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import "tailwindcss";
+@import "aos/dist/aos.css";
 
 @theme {
-  --color-plum: #3D2039;      /* Elegant deep purple-brown */
-  --color-plum-dark: #120A13; /* Very dark rich plum instead of pitch black */
-  --color-plum-mid: #1B111D;
-  --color-gold: #DDA74A;      /* Softer, more organic gold */
-  --color-rose: #C68BA3;      /* Muted rose for elegance */
-  --color-cream: #FDF9F1;     /* Warm off-white */
-  --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "DM Sans", sans-serif;
+  /* ── Brand colors ── */
+  --color-plum:        #6E2B72;
+  --color-plum-light:  #8B3D90;
+  --color-plum-mid:    #2a1230;
+  --color-plum-dark:   #1a0a20;
+  --color-gold:        #D4930C;
+  --color-gold-light:  #F4C97A;
+  --color-rose:        #C97BA8;
+  --color-cream:       #FAF3E0;
+
+  /* ── Fonts ── */
+  --font-display: "Cormorant Garamond", serif;
+  --font-body:    "DM Sans", sans-serif;
 }
 
-@layer utilities {
-  .section-divider {
-    @apply py-2.5 px-6 border-t border-b border-gold/50 font-sans text-[11px] font-medium tracking-[0.15em] text-rose text-center uppercase inline-block;
-  }
-}
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+
+/* ── Selection ── */
+::selection { background: #C97BA8; color: #fff; }
