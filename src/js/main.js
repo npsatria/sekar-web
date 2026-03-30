@@ -2,27 +2,30 @@ import '../css/style.css'
 import AOS from 'aos'
 import { createIcons, Leaf, FileText, ArrowDown, ChevronDown, ChevronsDown, Flower2, Sparkles, Mail, Phone } from 'lucide'
 
-// Init AOS
-AOS.init({
-  duration: 900,
-  once: true,
-  offset: 60,
-  easing: 'ease-out-cubic',
-})
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Init AOS
+    AOS.init({
+        duration: 900,
+        once: true,
+        offset: 100,
+        easing: 'ease-out-cubic',
+    })
 
-// Init Lucide icons
-createIcons({
-  icons: {
-    leaf: Leaf,
-    'file-text': FileText,
-    'arrow-down': ArrowDown,
-    'chevron-down': ChevronDown,
-    'chevrons-down': ChevronsDown,
-    'flower-2': Flower2,
-    sparkles: Sparkles,
-    mail: Mail,
-    phone: Phone,
-  },
+    // Init Lucide icons - robust version for Vite
+    createIcons({
+        icons: {
+            leaf: Leaf,
+            'file-text': FileText,
+            'arrow-down': ArrowDown,
+            'chevron-down': ChevronDown,
+            'chevrons-down': ChevronsDown,
+            'flower-2': Flower2,
+            sparkles: Sparkles,
+            mail: Mail,
+            phone: Phone,
+        },
+    })
 })
 
 // Smooth scroll for anchor links
