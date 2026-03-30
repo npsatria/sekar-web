@@ -358,7 +358,7 @@
             position: absolute;
             pointer-events: none;
             z-index: 1;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)); /* Lighter shadow */
+            filter: brightness(1.5) sepia(0.3) saturate(1.1) drop-shadow(0 0 15px rgba(212, 147, 12, 0.15)); /* Enhanced glow */
         }
         @keyframes floating {
             0%, 100% { transform: translateY(0) rotate(var(--rot)); }
@@ -528,20 +528,23 @@
 </section>
 
 
-<section id="journey" style="background:var(--plum-mid) var(--bg-pattern); background-attachment:fixed; padding:5rem 1.5rem; position:relative; overflow:hidden;">
+<section id="journey" style="background:var(--plum-mid) var(--bg-pattern); background-attachment:fixed; padding:6rem 1.5rem; position:relative; overflow:hidden;">
 
-    <!-- Dynamic Decorations: Premium Editorial Redesign -->
-    <!-- Top-Left: Large focal point -->
+    <!-- Background Spotlight for balance -->
+    <div style="position:absolute; inset:0; background:radial-gradient(circle at 50% 50%, rgba(212,147,12,0.06) 0%, transparent 70%); pointer-events:none;"></div>
+
+    <!-- Dynamic Ornaments for Framing -->
     <img src="/public/asset/dekorasi/deko 7.svg" class="corner-ornament ornament-float"
-         style="top:0%; left:0.5%; width:320px; opacity:0.3; --rot:8deg;" data-aos="fade-right" />
+         style="top:8%; left:2%; width:240px; opacity:0.45; --rot:10deg;" data-aos="fade-right" />
     
-    <!-- Mid-Right: Decorative balance -->
-    <img src="/public/asset/dekorasi/deko 5.svg" class="corner-ornament ornament-float"
-         style="top:35%; right:1%; width:220px; opacity:0.25; --rot:-12deg; animation-delay: -2s;" data-aos="fade-left" />
-    
-    <!-- Bottom-Left: Subtle exit -->
     <img src="/public/asset/dekorasi/deko 3.svg" class="corner-ornament ornament-float"
-         style="bottom:2%; left:2%; width:200px; opacity:0.22; --rot:15deg; animation-delay: -4s;" data-aos="fade-up" />
+         style="top:35%; right:1%; width:280px; opacity:0.42; --rot:-15deg; animation-delay: -2s;" data-aos="fade-left" />
+
+    <img src="/public/asset/dekorasi/deko 11.svg" class="corner-ornament ornament-float"
+         style="bottom:10%; left:1%; width:200px; opacity:0.4; --rot:45deg; animation-delay: -4s;" data-aos="fade-up-right" />
+    
+    <img src="/public/asset/dekorasi/deko 5.svg" class="corner-ornament ornament-float"
+         style="bottom:5%; right:2%; width:220px; opacity:0.38; --rot:-20deg; animation-delay: -3s;" data-aos="fade-up-left" />
 
     <div style="max-width:72rem; margin:0 auto; position:relative; z-index:2;">
 
