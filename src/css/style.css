@@ -15,6 +15,16 @@
   /* ── Fonts ── */
   --font-display: "Cormorant Garamond", serif;
   --font-body:    "DM Sans", sans-serif;
+
+  /* ── Effects ── */
+  --opacity-constellation: 0.05;
+  --bg-constellation: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNGQUYzRTAiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC40Ij48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIxLjUiIGZpbGw9IiNGQUYzRTAiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxNTAiIHI9IjEuNSIgZmlsbD0iI0ZBRjNFMCIvPjxsaW5lIHgxPSI1MCIgeTE9IjUwIiB4Mj0iMTUwIiB5Mj0iMTUwIi8+PGxpbmUgeDE9IjUwIiB5MT0iNTAiIHgyPSIzMCIgeTI9IjE3MCIvPjxsaW5lIHgxPSIxNTAiIHkxPSIxNTAiIHgyPSIxODAiIHkyPSIzMCIvPjwvZz48L3N2Zz4=');
+}
+
+.bg-constellation {
+  background-image: var(--bg-constellation);
+  background-size: 300px 300px;
+  opacity: 1; /* Managed via stroke-opacity or container */
 }
 
 /* ── Base ── */
