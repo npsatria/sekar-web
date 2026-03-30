@@ -100,7 +100,7 @@ window.changeLanguage = (lang) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Init AOS
     AOS.init({
-        duration: 900,
+        duration: 1200,
         once: true,
         offset: 100,
         easing: 'ease-out-cubic',
