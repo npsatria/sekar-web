@@ -266,6 +266,44 @@
         }
         .scroll-hint { animation: bounce-slow 2s ease-in-out infinite; }
 
+        /* ── Language Switcher ── */
+        .lang-switcher {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+            display: flex;
+            gap: 0.25rem;
+            background: rgba(26,10,32,0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(250, 243, 224, 0.15);
+            padding: 0.35rem;
+            border-radius: 999px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: rgba(250, 243, 224, 0.5);
+        }
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--plum-dark);
+            box-shadow: 0 4px 12px rgba(212, 147, 12, 0.3);
+        }
+        .lang-btn:hover:not(.active) {
+            color: var(--cream);
+            background: rgba(250, 243, 224, 0.08);
+        }
+
         /* ── Decorative grain overlay on hero ── */
         .grain-overlay {
             position: absolute;
@@ -309,6 +347,12 @@
 
 <body style="font-family:'DM Sans',sans-serif; color:var(--cream); background:var(--plum-dark); overflow-x:hidden;">
 
+<!-- Language Switcher UI -->
+<div class="lang-switcher">
+    <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+    <button class="lang-btn" onclick="changeLanguage('id')">ID</button>
+</div>
+
 <header id="beranda" style="position:relative; width:100%; height:100svh; display:flex; align-items:flex-end; overflow:hidden;">
 
     <!-- Background Photo -->
@@ -341,22 +385,15 @@
         </h1>
 
         <!-- Sub label -->
-        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="250"
+        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="250" data-i18n="hero_sub"
            style="font-size:0.75rem; font-weight:500; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1.75rem;">
             Hair Mask
         </p>
 
         <!-- Description — short, punchy, readable -->
-        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="400"
+        <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="400" data-i18n="hero_desc"
            style="max-width:32rem; font-size:0.9375rem; font-weight:300; line-height:1.8; color:rgba(250,243,224,0.82); margin-bottom:2.5rem; letter-spacing:0.01em;">
-           SEKAR (Smooth, Essential and
-           Repairing): Hair Mask Formulated
-           from Canang Waste with Balsam
-           (Impatiens balsamina) Extract
-and Pandan (Pandanus
-amaryllifolius) as Natural
-Fragrance to Strengthen and
-    Moisturize Hair
+           SEKAR (Smooth, Essential and Repairing): Hair Mask Formulated from Canang Waste with Balsam (Impatiens balsamina) Extract and Pandan (Pandanus amaryllifolius) as Natural Fragrance to Strengthen and Moisturize Hair
         </p>
 
         <!-- CTAs -->
@@ -364,10 +401,10 @@ Fragrance to Strengthen and
              style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; align-items:center;">
             <a href="/asset/laboratory document.pdf" target="_blank" class="btn-primary">
                 <i class="fa-regular fa-file-lines"></i>
-                Lab Report
+                <span data-i18n="btn_lab">Lab Report</span>
             </a>
             <a href="#our-product" class="btn-ghost" style="padding-right: 1.5rem;">
-                Discover More
+                <span data-i18n="btn_more">Discover More</span>
                 <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i>
             </a>
         </div>
@@ -380,20 +417,16 @@ Fragrance to Strengthen and
     </div>
 </header>
 
-
-<!-- ═══════════════════════════════════════════ -->
-<!--  OUR PRODUCT                               -->
-<!-- ═══════════════════════════════════════════ -->
 <section id="our-product" style="background:var(--plum-dark); padding:5rem 1.5rem;">
     <div style="max-width:72rem; margin:0 auto;">
 
         <!-- Section label -->
         <div style="text-align:center; margin-bottom:1.5rem;" data-aos="fade-up">
-            <span class="section-label">Our Product</span>
+            <span class="section-label" data-i18n="product_label">Our Product</span>
         </div>
 
         <!-- Description -->
-        <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="900"
+        <p data-aos="fade-up" data-aos-delay="150" data-aos-duration="900" data-i18n="product_desc"
            style="max-width:52rem; margin:0 auto 3rem; font-size:0.9375rem; font-weight:300; line-height:1.9; color:rgba(250,243,224,0.78); text-align:center;">
             SEKAR is a natural hair mask formulated from
             <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">canang waste</a>,
@@ -465,7 +498,7 @@ Fragrance to Strengthen and
 
         <!-- Section label -->
         <div style="text-align:center; margin-bottom:0.75rem;" data-aos="fade-up">
-            <span class="section-label">Journey of SEKAR</span>
+            <span class="section-label" data-i18n="journey_label">Journey of SEKAR</span>
         </div>
 
         <!-- Ornament -->
@@ -494,7 +527,7 @@ Fragrance to Strengthen and
                         <!-- Step number -->
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
                             <span class="step-num">01</span>
-                            <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Harvest</span>
+                            <span data-i18n="step_1" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Harvest</span>
                         </div>
                     </div>
                 </div>
@@ -506,7 +539,7 @@ Fragrance to Strengthen and
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
                             <span class="step-num">02</span>
-                            <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Extract</span>
+                            <span data-i18n="step_2" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Extract</span>
                         </div>
                     </div>
                 </div>
@@ -518,7 +551,7 @@ Fragrance to Strengthen and
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
                             <span class="step-num">03</span>
-                            <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Formulate</span>
+                            <span data-i18n="step_3" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Formulate</span>
                         </div>
                     </div>
                 </div>
@@ -530,7 +563,7 @@ Fragrance to Strengthen and
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
                             <span class="step-num">04</span>
-                            <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Package</span>
+                            <span data-i18n="step_4" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Package</span>
                         </div>
                     </div>
                 </div>
@@ -554,10 +587,10 @@ Fragrance to Strengthen and
         </div>
 
         <!-- Closing ornament -->
-        <div class="gold-ornament" data-aos="fade-up" data-aos-delay="350" style="margin-top:2rem; margin-bottom:0;">
-            <span></span>
-            <i data-lucide="sparkles" style="width:14px; height:14px;"></i>
-            <span></span>
+        <!-- <div class="gold-ornament" data-aos="fade-up" data-aos-delay="350" style="margin-top:2rem; margin-bottom:0;">
+            <span></span> -->
+            <!-- <i data-lucide="sparkles" style="width:14px; height:14px;"></i> -->
+            <!-- <span></span> -->
         </div>
 
     </div>
@@ -574,7 +607,7 @@ Fragrance to Strengthen and
         <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2rem; color:var(--cream); letter-spacing:0.06em; margin-bottom:0.25rem;">
             SEKAR
         </p>
-        <p style="font-size:0.625rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:2rem; font-weight:500;">
+        <p data-i18n="footer_sub" style="font-size:0.625rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--rose); margin-bottom:2rem; font-weight:500;">
             Natural Hair Mask · Bali
         </p>
 
@@ -597,7 +630,7 @@ Fragrance to Strengthen and
 
         <!-- Divider -->
         <div style="border-top:1px solid rgba(250,243,224,0.1); padding-top:1.25rem;">
-            <p style="font-size:0.625rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,243,224,0.3); font-weight:400;">
+            <p data-i18n="footer_copy" style="font-size:0.625rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(250,243,224,0.3); font-weight:400;">
                 © 2026 SEKAR. All rights reserved.
             </p>
         </div>
@@ -611,7 +644,7 @@ Fragrance to Strengthen and
 <!-- Combined Responsive Typography Tweaks -->
 <style>
 @media (max-width: 768px) {
-    header h1 { 
+    header h1 {
         font-size: clamp(2.5rem, 12vw, 4.5rem) !important;
         line-height: 1.1 !important;
     }
