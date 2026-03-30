@@ -358,7 +358,7 @@
             position: absolute;
             pointer-events: none;
             z-index: 1;
-            /* Default colors allowed per user request */
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3)); /* Lighter shadow */
         }
         @keyframes floating {
             0%, 100% { transform: translateY(0) rotate(var(--rot)); }
@@ -530,21 +530,16 @@
 
 <section id="journey" style="background:var(--plum-mid) var(--bg-pattern); background-attachment:fixed; padding:5rem 1.5rem; position:relative; overflow:hidden;">
 
-    <!-- Dynamic Decorations -->
+    <!-- Dynamic Decorations: Balanced Redesign -->
+    <!-- Dynamic Decorations: Full Visibility Redesign -->
     <img src="/public/asset/dekorasi/deko 7.svg" class="corner-ornament ornament-float"
-         style="top:2%; left:-4%; width:240px; opacity:0.15; --rot:12deg;" data-aos="fade-right" />
-    <img src="/public/asset/dekorasi/deko 1.svg" class="corner-ornament ornament-float"
-         style="top:15%; right:-6%; width:200px; opacity:0.1; --rot:-8deg; animation-delay: -1s;" data-aos="fade-left" />
-    <img src="/public/asset/dekorasi/deko 5.svg" class="corner-ornament ornament-float"
-         style="top:45%; left:-8%; width:280px; opacity:0.12; --rot:-15deg; animation-delay: -2.5s;" data-aos="fade-right" />
-    <img src="/public/asset/dekorasi/deko 3.svg" class="corner-ornament ornament-float"
-         style="top:60%; right:-5%; width:220px; opacity:0.1; --rot:20deg; animation-delay: -3.5s;" data-aos="fade-left" />
+         style="top:0%; left:0%; width:280px; opacity:0.3; --rot:12deg;" data-aos="fade-right" />
     <img src="/public/asset/dekorasi/deko 9.svg" class="corner-ornament ornament-float"
-         style="bottom:15%; left:-2%; width:190px; opacity:0.08; --rot:35deg; animation-delay: -5s;" data-aos="fade-up" />
-    <img src="/public/asset/dekorasi/deko 11.svg" class="corner-ornament ornament-float"
-         style="bottom:5%; right:-3%; width:180px; opacity:0.1; --rot:-10deg; animation-delay: -4s;" data-aos="fade-up" />
-    <img src="/public/asset/dekorasi/deko 4.svg" class="corner-ornament ornament-float"
-         style="top:30%; left:40%; width:150px; opacity:0.05; --rot:5deg; z-index:0;" data-aos="zoom-in" />
+         style="top:15%; right:0%; width:240px; opacity:0.25; --rot:-10deg; animation-delay: -1s;" data-aos="fade-left" />
+    <img src="/public/asset/dekorasi/deko 5.svg" class="corner-ornament ornament-float"
+         style="top:45%; left:1%; width:260px; opacity:0.25; --rot:-15deg; animation-delay: -2s;" data-aos="fade-right" />
+    <img src="/public/asset/dekorasi/deko 3.svg" class="corner-ornament ornament-float"
+         style="bottom:0%; right:0%; width:220px; opacity:0.28; --rot:8deg; animation-delay: -3s;" data-aos="fade-up" />
 
     <div style="max-width:72rem; margin:0 auto; position:relative; z-index:2;">
 
