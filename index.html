@@ -400,10 +400,14 @@
 </div>
 
 <header id="beranda" style="position:relative; width:100%; height:100svh; display:flex; justify-content:center; align-items:center; overflow:hidden;">
+    <!-- Standardized padding-inline for all devices -->
+    <style>
+        @media (max-width: 480px) { .hero-safe-zone { padding: 4rem 1.25rem !important; } }
+    </style>
 
     <!-- Background Photo -->
     <img
-        src="/asset/foto-hero.jpeg"
+        src="/asset/foto-hero.jpg"
         alt="SEKAR Hair Mask"
         style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;"
     />
@@ -414,8 +418,8 @@
     <!-- Grain texture -->
     <div class="grain-overlay"></div>
 
-    <!-- Hero Content — strictly centered with 10% horizontal safe-zones for perfect symmetry -->
-    <div style="position:relative; z-index:10; width:100%; max-width:1140px; padding:4rem 10%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-sizing:border-box;">
+    <!-- Hero Content — strictly centered with flexible safe-zones -->
+    <div class="hero-safe-zone" style="position:relative; z-index:10; width:100%; max-width:1140px; padding:4rem 10%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; box-sizing:border-box;">
 
         <!-- Product badge -->
         <!-- <div data-aos="fade-down" data-aos-duration="800"
@@ -424,9 +428,9 @@
             <!-- <span style="font-size:0.6875rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold);">Natural · Eco-Friendly · Bali</span> -->
         <!-- </div> -->
 
-        <!-- SEKAR wordmark — strictly centered -->
+        <!-- SEKAR wordmark — strictly centered and safe for 320px+ -->
         <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"
-            style="width:100%; max-width:100%; margin:0 auto 0.5rem auto !important; font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:clamp(3.5rem, 15vw, 10rem); line-height:0.9; letter-spacing:-0.02em; color:var(--cream); word-break: break-word;">
+            style="width:100%; max-width:100%; margin:0 auto 0.5rem auto !important; font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:clamp(3rem, 15vw, 10rem); line-height:0.9; letter-spacing:-0.02em; color:var(--cream); word-break: break-word;">
             SEKAR
         </h1>
 
@@ -505,7 +509,7 @@
             <!-- Item 2: Tall Side Gallery (1x2) -->
             <div class="bento-card" data-aos="fade-left" data-aos-delay="100" style="grid-column:span 1; grid-row:span 2;">
                 <div class="bento-card-inner">
-                    <img src="/public/asset/tb 2.jpg" alt="SEKAR Product Detail" />
+                    <img src="/asset/tb 2.jpg" alt="SEKAR Product Detail" />
                 </div>
             </div>
 
@@ -519,7 +523,7 @@
             <!-- Item 4: Small Detail B -->
             <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="bento-card-inner">
-                    <img src="/public/asset/tb 3.jpg" alt="SEKAR Product Detail 3" />
+                    <img src="/asset/tb 3.jpg" alt="SEKAR Product Detail 3" />
                 </div>
             </div>
 
@@ -539,11 +543,11 @@
 <section id="journey" style="background:var(--plum-mid) var(--bg-pattern); background-attachment:fixed; padding:5rem 1.5rem; position:relative; overflow:hidden;">
 
     <!-- Dynamic Decorations -->
-    <img src="/public/asset/dekorasi/deko 7.svg" class="corner-ornament ornament-float"
+    <img src="/asset/dekorasi/deko 7.svg" class="corner-ornament ornament-float"
          style="top:5%; left:-5%; width:220px; opacity:0.4; --rot:10deg;" data-aos="fade-right" />
-    <img src="/public/asset/dekorasi/deko 3.svg" class="corner-ornament ornament-float"
+    <img src="/asset/dekorasi/deko 3.svg" class="corner-ornament ornament-float"
          style="top:40%; right:-8%; width:260px; opacity:0.35; --rot:-15deg; animation-delay: -2s;" data-aos="fade-left" />
-    <img src="/public/asset/dekorasi/deko 11.svg" class="corner-ornament ornament-float"
+    <img src="/asset/dekorasi/deko 11.svg" class="corner-ornament ornament-float"
          style="bottom:5%; left:-3%; width:180px; opacity:0.3; --rot:45deg; animation-delay: -4s;" data-aos="fade-up" />
 
     <div style="max-width:72rem; margin:0 auto; position:relative; z-index:2;">
@@ -566,55 +570,59 @@
             From sacred waste to premium care — every step, intentional. -->
         </p>
 
-        <!-- 2×2 Grid with step numbers + decorative border -->
+        <!-- 2×2 Grid with step numbers + dynamic mobile stacking -->
         <div class="journey-grid-wrapper" data-aos="fade-up" data-aos-delay="200" style="margin-bottom:1rem;">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+            <style>
+                .journey-steps-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+                @media (max-width: 640px) { .journey-steps-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+            </style>
+            <div class="journey-steps-grid">
 
                 <!-- Step 1 -->
-                <div class="journey-card" style="aspect-ratio:1/1;">
+                <div class="journey-card" style="aspect-ratio:1/1; height: auto; min-height: 320px;">
                     <div class="journey-card-inner">
                         <img src="/asset/step 1.jpg" alt="Step 1 — Harvest" style="width:100%; height:100%; object-fit:cover; display:block;" />
                         <!-- Gradient bottom for readability -->
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <!-- Step number -->
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
-                            <span class="step-num">01</span>
+                            <span class="step-num" style="font-size: clamp(2rem, 8vw, 3rem);">01</span>
                             <span data-i18n="step_1" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Harvest</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="journey-card" style="aspect-ratio:1/1;">
+                <div class="journey-card" style="aspect-ratio:1/1; height: auto; min-height: 320px;">
                     <div class="journey-card-inner">
                         <img src="/asset/step 2.jpg" alt="Step 2 — Extract" style="width:100%; height:100%; object-fit:cover; display:block;" />
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
-                            <span class="step-num">02</span>
+                            <span class="step-num" style="font-size: clamp(2rem, 8vw, 3rem);">02</span>
                             <span data-i18n="step_2" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Extract</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="journey-card" style="aspect-ratio:1/1;">
+                <div class="journey-card" style="aspect-ratio:1/1; height: auto; min-height: 320px;">
                     <div class="journey-card-inner">
                         <img src="/asset/step 3.jpg" alt="Step 3 — Formulate" style="width:100%; height:100%; object-fit:cover; display:block;" />
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
-                            <span class="step-num">03</span>
+                            <span class="step-num" style="font-size: clamp(2rem, 8vw, 3rem);">03</span>
                             <span data-i18n="step_3" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Formulate</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 4 -->
-                <div class="journey-card" style="aspect-ratio:1/1;">
+                <div class="journey-card" style="aspect-ratio:1/1; height: auto; min-height: 320px;">
                     <div class="journey-card-inner">
                         <img src="/asset/step 4.jpg" alt="Step 4 — Package" style="width:100%; height:100%; object-fit:cover; display:block;" />
                         <div style="position:absolute; bottom:0; left:0; right:0; height:45%; background:linear-gradient(to top, rgba(26,10,32,0.85), transparent); pointer-events:none;"></div>
                         <div style="position:absolute; bottom:1rem; left:1.25rem; display:flex; align-items:flex-end; gap:0.625rem;">
-                            <span class="step-num">04</span>
+                            <span class="step-num" style="font-size: clamp(2rem, 8vw, 3rem);">04</span>
                             <span data-i18n="step_4" style="font-size:0.6875rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,243,224,0.7); padding-bottom:0.375rem;">Package</span>
                         </div>
                     </div>
@@ -626,7 +634,7 @@
         <!-- Wide/landscape closing photo -->
         <div class="journey-card" data-aos="fade-up" data-aos-delay="300" style="height:280px;">
             <div class="journey-card-inner">
-                 <img src="/asset/foto-hero.jpeg" alt="SEKAR — Ready to use"
+                 <img src="/asset/foto-hero.jpg" alt="SEKAR — Ready to use"
                       style="width:100%; height:100%; object-fit:cover; object-position:center 60%; display:block;" />
             </div>
             <!-- Overlay with closing message — Original Style Restored -->
