@@ -152,15 +152,42 @@
 
         /* ── Bento card hover ── */
         .bento-card {
-            border-radius: 1.25rem;
+            border-radius: 0.875rem;
             overflow: hidden;
-            transition: border-color 0.4s ease;
+            border: 1px solid rgba(250, 243, 224, 0.08);
+            position: relative;
+            background: rgba(26,10,32,0.5);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
         }
         .bento-card img {
-            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            border-color: rgba(212, 147, 12, 0.3);
+            box-shadow: 0 12px 40px -12px rgba(0,0,0,0.5);
         }
         .bento-card:hover img {
             transform: scale(1.05);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 240px;
+            gap: 1.25rem;
+        }
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .bento-grid { 
+                grid-template-columns: 1fr;
+                grid-auto-rows: 280px;
+                gap: 1rem;
+            }
         }
 
         /* ── Journey photo hover ── */
@@ -357,51 +384,34 @@ Fragrance to Strengthen and
             <a href="https://docs.google.com/document/d/1uEUlkMvXZN6uKXPdrrk5s54KLQas7smE/edit" target="_blank" class="science-link">ceremonial waste</a> into a valuable and functional product.
         </p>
 
-        <!-- Bento Grid — Top Row -->
-        <div class="w-full max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
-          
-          <div class="col-span-2 row-span-2 md:col-span-2 md:row-span-2 p-2 border border-gold/30 rounded-[2rem] hover:border-gold transition-colors duration-500 bg-plum-mid/50" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="w-full h-full rounded-3xl overflow-hidden group">
-              <img src="/asset/tb 1.jpg" alt="SEKAR Premium Product" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+        <!-- Unified Bento Grid Showcase (5 Items) -->
+        <div class="bento-grid">
+            
+            <!-- Item 1: Large Main Showcase (2x2) -->
+            <div class="bento-card" data-aos="zoom-in" data-aos-duration="1000" style="grid-column:span 2; grid-row:span 2;">
+                <img src="/asset/tb 1.jpg" alt="SEKAR Premium Product" />
             </div>
-          </div>
 
-          <div class="col-span-1 row-span-2 md:col-span-1 md:row-span-2 p-2 border border-rose/30 rounded-[2rem] hover:border-rose transition-colors duration-500 bg-plum-mid/50" data-aos="fade-up" data-aos-delay="150">
-            <div class="w-full h-full rounded-3xl overflow-hidden group">
-              <img src="/asset/tb 3.jpg" alt="SEKAR Detail 1" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Item 2: Tall Side Gallery (1x2) -->
+            <div class="bento-card" data-aos="fade-left" data-aos-delay="100" style="grid-column:span 1; grid-row:span 2;">
+                <img src="/asset/tb 5.jpg" alt="SEKAR Product Detail" />
             </div>
-          </div>
 
-          <div class="col-span-1 row-span-1 md:col-span-1 md:row-span-1 p-2 border border-cream/20 rounded-[2rem] hover:border-cream transition-colors duration-500 bg-plum-mid/50" data-aos="fade-left" data-aos-delay="300">
-            <div class="w-full h-full rounded-3xl overflow-hidden group">
-              <img src="/asset/tb 4.jpg" alt="SEKAR Detail 2" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Item 3: Small Detail A -->
+            <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="/asset/tb 3.jpg" alt="SEKAR Product Detail 2" />
             </div>
-          </div>
 
-          <div class="col-span-1 row-span-1 md:col-span-1 md:row-span-1 p-2 border border-gold/30 rounded-[2rem] hover:border-gold transition-colors duration-500 bg-plum-mid/50" data-aos="fade-left" data-aos-delay="450">
-            <div class="w-full h-full rounded-3xl overflow-hidden group">
-              <img src="/asset/tb 5.jpg" alt="SEKAR Detail 3" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Item 4: Small Detail B -->
+            <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="/asset/tb 4.jpg" alt="SEKAR Product Detail 3" />
             </div>
-          </div>
-        </div>
 
-        <!-- Bento Grid — Bottom Row -->
-        <div class="w-full max-w-6xl mx-auto grid grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6 auto-rows-[150px] md:auto-rows-[250px]">
-          <div class="p-2 border border-cream/20 rounded-[1.5rem] md:rounded-[2rem] hover:border-cream transition-colors duration-500 bg-plum-mid/50" data-aos="zoom-in-up" data-aos-delay="100">
-            <div class="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden group">
-              <img src="/asset/tb-9.jpg" alt="SEKAR Process 1" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
+            <!-- Item 5: Small Detail C -->
+            <div class="bento-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="/asset/tb-9.jpg" alt="SEKAR Product Detail 4" />
             </div>
-          </div>
-          <div class="p-2 border border-gold/25 rounded-[1.5rem] md:rounded-[2rem] hover:border-gold transition-colors duration-500 bg-plum-mid/50" data-aos="zoom-in-up" data-aos-delay="200">
-            <div class="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden group">
-              <img src="/asset/tb 8.jpg" alt="SEKAR Process 2" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
-            </div>
-          </div>
-          <div class="p-2 border border-rose/25 rounded-[1.5rem] md:rounded-[2rem] hover:border-rose transition-colors duration-500 bg-plum-mid/50" data-aos="zoom-in-up" data-aos-delay="300">
-            <div class="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden group">
-              <img src="/asset/tb 6.jpg" alt="SEKAR Process 3" class="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-700 ease-out" />
-            </div>
-          </div>
+
         </div>
 
     </div>
@@ -507,9 +517,6 @@ Fragrance to Strengthen and
 </section>
 
 
-<!-- ═══════════════════════════════════════════ -->
-<!--  FOOTER                                    -->
-<!-- ═══════════════════════════════════════════ -->
 <footer style="background:var(--plum); padding:3rem 1.5rem 2rem;">
     <div style="max-width:36rem; margin:0 auto; text-align:center;">
 
