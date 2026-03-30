@@ -304,6 +304,34 @@
             opacity: 0.5;
         }
 
+        /* ── Footer Contact Badges ── */
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem 1.25rem;
+            background: rgba(250, 243, 224, 0.04);
+            border: 1px solid rgba(250, 243, 224, 0.1);
+            border-radius: 999px;
+            color: rgba(250, 243, 224, 0.7);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        .contact-badge:hover {
+            background: rgba(212, 147, 12, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .contact-badge i {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
         /* ── Scroll indicator bounce ── */
         @keyframes bounce-slow {
             0%, 100% { transform: translateY(0); }
@@ -688,20 +716,15 @@
             Natural Hair Mask · Bali
         </p>
 
-        <!-- Contact row -->
-        <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; align-items:center; margin-bottom:2rem;">
-            <a href="mailto:tugekmas12@gmail.com"
-               style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,243,224,0.6); text-decoration:none; transition:color 0.2s ease;"
-               onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(250,243,224,0.6)'">
-                <i data-lucide="mail" style="width:13px; height:13px;"></i>
-                tugekmas12@gmail.com
+        <!-- Contact row — Premium Badges -->
+        <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; align-items:center; margin-bottom:2.5rem;">
+            <a href="mailto:tugekmas12@gmail.com" class="contact-badge" data-aos="fade-up" data-aos-delay="100">
+                <i data-lucide="mail"></i>
+                <span>tugekmas12@gmail.com</span>
             </a>
-            <span style="width:1px; height:14px; background:rgba(250,243,224,0.2);"></span>
-            <a href="tel:+6281239208093"
-               style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,243,224,0.6); text-decoration:none; transition:color 0.2s ease;"
-               onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(250,243,224,0.6)'">
-                <i data-lucide="phone" style="width:13px; height:13px;"></i>
-                +62 812-3920-8093
+            <a href="https://wa.me/6281239208093" target="_blank" class="contact-badge" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>
+                <span>+62 812-3920-8093</span>
             </a>
         </div>
 
