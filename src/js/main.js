@@ -87,7 +87,7 @@ window.changeLanguage = (lang) => {
     // Update buttons active state
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+        if (btn.getAttribute('data-lang') === lang) {
             btn.classList.add('active');
         }
     });
